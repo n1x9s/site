@@ -4,7 +4,6 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired
-import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key'
@@ -27,26 +26,19 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Отправить')
 
 
-def extract_data_to_file():
-    registration_data = Registration.query.all()
-    project_directory = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(project_directory, 'bd.txt')
-
-
 @app.route('/')
 def index():
-    return render_template('base.html', title='Mental')
+    return render_template('index.html', title='Mental')
 
 
 @app.route('/reg', methods=['GET', 'POST'])
-def feedback():
+def registration():
     form = RegistrationForm()
     if form.validate_on_submit():
         registration = Registration(name=form.name.data, pulse=form.pulse.data, pressure=form.pressure.data)
         db.session.add(registration)
         db.session.commit()
-        flash('Feedback submitted successfully!')
-        extract_data_to_file()
+        flash('Registration data submitted successfully!')
     return render_template('reg.html', form=form, title="Registration")
 
 

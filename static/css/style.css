@@ -45,9 +45,7 @@
     cursor: pointer;
   }
 
-  .feedback-form input[type="submit"]:hover {
-    background-color: #ff3333;
-  }
+  
   .gradient-text {
     background-image: linear-gradient(to right, darkgreen, lightgreen);
   }
@@ -63,4 +61,22 @@
 
   .gradient-button:hover {
     background: linear-gradient(to right, lightgreen, darkgreen);
+  }
+  .logo{
+    height: 150px;
+    width: 150px;
+    margin-left: 1250px;
+  }
+  .hindex{
+    font-size: 40px;
+    margin-left: 450px;
+    margin-top: 20px;
+  }
+  .btnn{
+    margin-left: 650px;
+    height: 50px;
+    width: 100px;
+    color: white;
+    background-image: linear-gradient(to right, darkgreen, lightgreen);
+    border-radius: 5px;
   }
