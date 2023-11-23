@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if registration.pulse <= 60 and registration.pressure <= 120 %}
+    <h1>Все норм</h1>
+{% else %}
+    <h1>Все не норм</h1>
+{% endif %}
+
+{% endblock %}  
