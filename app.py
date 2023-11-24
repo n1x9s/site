@@ -60,8 +60,8 @@ def show():
 
 @app.route('/history', methods=['GET'])
 def history():
-    username = request.args.get('username')
-    data = Registration.query.filter_by(name=username).all()
+    username = request.args.get('username')  # Получаем имя пользователя из запроса
+    data = Registration.query.filter_by(name=username).all()  # Фильтруем данные по имени пользователя
     return render_template('history.html', data=data, title="History")
 
 
