@@ -2,7 +2,7 @@ from flask import Flask, render_template, flash, redirect
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField
+from wtforms import StringField, SubmitField, IntegerField, FloatField
 from wtforms.validators import DataRequired
 
 app = Flask(__name__)
@@ -22,7 +22,7 @@ class Registration(db.Model):
 class RegistrationForm(FlaskForm):
     name = StringField('Ваше имя', validators=[DataRequired()])
     pulse = IntegerField('Ваш пульс в данный момент', validators=[DataRequired()])
-    pressure = IntegerField('Ваше давление в данный момент', validators=[DataRequired()])
+    pressure = FloatField('Ваше давление в данный момент', validators=[DataRequired()])
     submit = SubmitField('Отправить')
 
 
@@ -50,8 +50,7 @@ def show():
         registration = Registration(name=form.name.data, pulse=form.pulse.data, pressure=form.pressure.data)
         db.session.add(registration)
         db.session.commit()
-        flash('Registration data submitted successfully!')
-    return render_template('show.html', title="Show")
+    return render_template('show.html', form=form, title="Show")
 
 
 if __name__ == '__main__':

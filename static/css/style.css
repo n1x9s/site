@@ -80,3 +80,16 @@
     background-image: linear-gradient(to right, darkgreen, lightgreen);
     border-radius: 5px;
   }
+  p{
+    text-align: center;
+    font-size: 30px;
+  }
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    width: 300px;
+    border: 1px solid rgb(69, 69, 69);
+    border-radius: 20px;
+  }
