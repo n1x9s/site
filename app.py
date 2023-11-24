@@ -22,7 +22,9 @@ class Registration(db.Model):
 class RegistrationForm(FlaskForm):
     name = StringField('Ваше имя', validators=[DataRequired()])
     pulse = IntegerField('Ваш пульс в данный момент', validators=[DataRequired()])
-    pressure = FloatField('Ваше давление в данный момент', validators=[DataRequired()])
+    pressure = FloatField(
+        'Ваше давление в данный момент (верхнее и нижнее, где разделителем является точка. Например, 120.80).',
+        validators=[DataRequired()])
     submit = SubmitField('Отправить')
 
 
