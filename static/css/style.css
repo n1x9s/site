@@ -92,4 +92,17 @@
     width: 300px;
     border: 1px solid rgb(69, 69, 69);
     border-radius: 20px;
+    position: relative;
+  }
+  .profilebtn{
+    height: 50px;
+    width: 150px;
+    position: absolute;
+    margin-left: 80px;
+    top: 50px;
+    color: white;
+    background-image: linear-gradient(to right, darkgreen, lightgreen);
+  }
+  .profilebtn:hover{
+    background: linear-gradient(to right, lightgreen, darkgreen);
   }

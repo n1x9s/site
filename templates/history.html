@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+</head>
+<body>
+    <h1>История данных пользователя</h1>
+    <ul>
+        {% for entry in data %}
+            <li>
+                Имя: {{ entry.name }}, Пульс: {{ entry.pulse }}, Давление: {{ entry.pressure }}
+            </li>
+        {% else %}
+            <li>Данные отсутствуют для данного пользователя.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

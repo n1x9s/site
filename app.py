@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect, request
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
@@ -28,6 +28,9 @@ class RegistrationForm(FlaskForm):
     submit = SubmitField('Отправить')
 
 
+name = Registration.name
+
+
 @app.route('/')
 def index():
     return render_template('index.html', title='Mental')
@@ -53,6 +56,13 @@ def show():
         db.session.add(registration)
         db.session.commit()
     return render_template('show.html', form=form, title="Show")
+
+
+@app.route('/history', methods=['GET'])
+def history():
+    username = request.args.get('username')
+    data = Registration.query.filter_by(name=username).all()
+    return render_template('history.html', data=data, title="History")
 
 
 if __name__ == '__main__':
