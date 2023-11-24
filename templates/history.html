@@ -1,10 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>History</title>
-</head>
-<body>
+{% extends "base.html" %}
+{% block content %}
     <h1>История данных пользователя</h1>
     <ul>
         {% for entry in data %}
@@ -15,5 +10,4 @@
             <li>Данные отсутствуют для данного пользователя.</li>
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}
