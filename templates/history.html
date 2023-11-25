@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-    <h1>История данных пользователя</h1>
+    <h1>История данных пользователя </h1>
+    <input type="date" class="form-control" id="date" name="date" placeholder="Дата" required>
     <ul>
         {% for entry in data %}
             <li>
-                Имя: {{ entry.name }}, Пульс: {{ entry.pulse }}, Давление: {{ entry.pressure }}
+                Пульс: {{ entry.pulse }}, Давление: {{ entry.pressure }}
             </li>
         {% else %}
             <li>Данные отсутствуют для данного пользователя.</li>
